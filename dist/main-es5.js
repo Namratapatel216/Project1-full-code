@@ -1279,6 +1279,8 @@ var ParticularUserEventComponent = /** @class */ (function () {
                         _this.setAlarm(stat_time);
                         _this.reminder_data = data;
                         if (_this.todays_past_events_ids.indexOf(data['eventId']) !== -1) {
+                        }
+                        else {
                             _this.todays_past_events_ids.push(data['eventId']);
                         }
                         _this.todays_event = _this.todays_event.map(function (event) {
@@ -1332,7 +1334,11 @@ var ParticularUserEventComponent = /** @class */ (function () {
                 else {
                     if (todays_date.getDate() === event_start_time.getDate()) {
                         if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1 || diffMins === 0)) {
-                            _this._eventser.getReminder(event);
+                            if (_this.todays_past_events_ids.indexOf(event.eventId) !== -1) {
+                            }
+                            else {
+                                _this._eventser.getReminder(event);
+                            }
                             _this.todays_past_events_ids.push(event.eventId);
                         }
                     }

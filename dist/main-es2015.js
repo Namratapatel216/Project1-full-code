@@ -1302,6 +1302,8 @@ let ParticularUserEventComponent = class ParticularUserEventComponent {
                         this.setAlarm(stat_time);
                         this.reminder_data = data;
                         if (this.todays_past_events_ids.indexOf(data['eventId']) !== -1) {
+                        }
+                        else {
                             this.todays_past_events_ids.push(data['eventId']);
                         }
                         this.todays_event = this.todays_event.map((event) => {
@@ -1355,7 +1357,11 @@ let ParticularUserEventComponent = class ParticularUserEventComponent {
                 else {
                     if (todays_date.getDate() === event_start_time.getDate()) {
                         if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1 || diffMins === 0)) {
-                            this._eventser.getReminder(event);
+                            if (this.todays_past_events_ids.indexOf(event.eventId) !== -1) {
+                            }
+                            else {
+                                this._eventser.getReminder(event);
+                            }
                             this.todays_past_events_ids.push(event.eventId);
                         }
                     }
