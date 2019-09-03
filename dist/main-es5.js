@@ -1328,7 +1328,7 @@ var ParticularUserEventComponent = /** @class */ (function () {
                 }
                 else {
                     if (todays_date.getDate() === event_start_time.getDate()) {
-                        if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1)) {
+                        if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1 || diffMins === 0)) {
                             _this._eventser.getReminder(event);
                             _this.todays_past_events_ids.push(event.eventId);
                         }
