@@ -991,6 +991,11 @@ export class ParticularUserEventComponent implements OnInit {
 
             this.reminder_data = data;
 
+            if(this.todays_past_events_ids.indexOf(data['eventId']) !== -1)
+            {
+                this.todays_past_events_ids.push(data['eventId']);
+            }
+
             this.todays_event = this.todays_event.map((event) => {
 
               if (event.eventId === data['eventId']) {
