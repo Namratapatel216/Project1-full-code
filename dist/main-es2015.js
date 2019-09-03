@@ -1357,12 +1357,8 @@ let ParticularUserEventComponent = class ParticularUserEventComponent {
                 else {
                     if (todays_date.getDate() === event_start_time.getDate()) {
                         if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1 || diffMins === 0)) {
-                            if (this.todays_past_events_ids.indexOf(event.eventId) !== -1) {
-                            }
-                            else {
-                                this._eventser.getReminder(event);
-                            }
                             this.todays_past_events_ids.push(event.eventId);
+                            this._eventser.getReminder(event);
                         }
                     }
                 }

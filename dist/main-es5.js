@@ -1334,12 +1334,8 @@ var ParticularUserEventComponent = /** @class */ (function () {
                 else {
                     if (todays_date.getDate() === event_start_time.getDate()) {
                         if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1 || diffMins === 0)) {
-                            if (_this.todays_past_events_ids.indexOf(event.eventId) !== -1) {
-                            }
-                            else {
-                                _this._eventser.getReminder(event);
-                            }
                             _this.todays_past_events_ids.push(event.eventId);
+                            _this._eventser.getReminder(event);
                         }
                     }
                 }
