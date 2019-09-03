@@ -682,9 +682,9 @@ export class ParticularUserEventComponent implements OnInit {
 
   }
 
-  
+
   public event_color;
-  
+
   public pushToEvents = (meeting_dataObj) => {
 
     console.log("push events called");
@@ -716,7 +716,7 @@ export class ParticularUserEventComponent implements OnInit {
     {
       this.event_color = colors.red;
     }  */
-	
+
     if (meeting_dataObj.meeting_start_date != undefined || meeting_dataObj.meeting_start_date != null || meeting_dataObj.meeting_start_date != '') {
 
       console.log("push events if part called" + JSON.stringify(meeting_dataObj));
@@ -738,8 +738,7 @@ export class ParticularUserEventComponent implements OnInit {
       let event_start_time: any = new Date(meeting_dataObj.meeting_start_date);
       var diffMs = (event_start_time - todays_date); // milliseconds between now & Christmas
       var diffDays = Math.floor(diffMs / 86400000); // days
-      if(diffDays === 0)
-      {
+      if (diffDays === 0) {
         this.todays_event = [
           ...this.todays_event,
           {
@@ -754,7 +753,7 @@ export class ParticularUserEventComponent implements OnInit {
         ]
       }
 
-      
+
 
       console.log("events are " + JSON.stringify(this.events));
 
@@ -838,7 +837,7 @@ export class ParticularUserEventComponent implements OnInit {
             console.log("meeting start date" + data['meeting_start_date']);
 
             this.modal.open(this.alert_creation_module, { size: 'lg' });
-            
+
 
           }
           else if ((data['meeting_created_by'] == this.UserId) && (data['meeting_purpose'] != undefined || data['meeting_purpose'] != null || data['meeting_purpose'] != '') && data != 'You are ONline') {
@@ -858,8 +857,8 @@ export class ParticularUserEventComponent implements OnInit {
           }
         }
         else if (data['action'] === "update") {
-			
-			          this.events = this.events.map(iEvent => {
+
+          this.events = this.events.map(iEvent => {
 
             if (iEvent.eventId === data['eventId']) {
               let updated_meeting_obj = {
@@ -882,14 +881,13 @@ export class ParticularUserEventComponent implements OnInit {
             return iEvent;
           });
 
-          if(this.todays_past_events_ids.indexOf(data['eventId']) !== -1)
-          {
-              for( let i = 0; i < this.todays_past_events_ids.length; i++){ 
-                if ( this.todays_past_events_ids[i] === data['eventId']) {
-                  this.todays_past_events_ids.splice(i, 1); 
-                  i--;
-                }
-             }
+          if (this.todays_past_events_ids.indexOf(data['eventId']) !== -1) {
+            for (let i = 0; i < this.todays_past_events_ids.length; i++) {
+              if (this.todays_past_events_ids[i] === data['eventId']) {
+                this.todays_past_events_ids.splice(i, 1);
+                i--;
+              }
+            }
 
           }
 
@@ -920,8 +918,8 @@ export class ParticularUserEventComponent implements OnInit {
             }
             return event;
           });
-		  
-		  
+
+
 
           this.refresh.next();
 
@@ -991,9 +989,12 @@ export class ParticularUserEventComponent implements OnInit {
 
             this.reminder_data = data;
 
-            if(this.todays_past_events_ids.indexOf(data['eventId']) !== -1)
-            {
-                this.todays_past_events_ids.push(data['eventId']);
+            if (this.todays_past_events_ids.indexOf(data['eventId']) !== -1) {
+
+            } else {
+
+              this.todays_past_events_ids.push(data['eventId']);
+
             }
 
             this.todays_event = this.todays_event.map((event) => {
@@ -1060,27 +1061,25 @@ export class ParticularUserEventComponent implements OnInit {
       console.log("diff in hours" + diffHrs);
       console.log(diffMins);
 
-      if(this.todays_past_events_ids.indexOf(event.eventId) !== -1)
-      {
-          console.log("event id is in array" + event.eventId);
+      if (this.todays_past_events_ids.indexOf(event.eventId) !== -1) {
+        console.log("event id is in array" + event.eventId);
       }
-      else
-      {
-          if(todays_date.getDate() === event_start_time.getDate())
-          {
-              if ((diffDays === 0) && (diffHrs === 0 ) && (diffMins === 1 || diffMins === 0) ) {
+      else {
+        if (todays_date.getDate() === event_start_time.getDate()) {
+          if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1 || diffMins === 0)) {
 
-                this._eventser.getReminder(event);
-        
-                this.todays_past_events_ids.push(event.eventId);
-        
-              }
+              this._eventser.getReminder(event);
+            
+
+            this.todays_past_events_ids.push(event.eventId);
+
           }
+        }
 
-          
+
       }
 
-      
+
 
       /* if ((event.time_gone === false) && (event.start.getHours() === current_date.getHours()) && (event.start.getMinutes() === (current_date.getMinutes() + 1))) {
 
