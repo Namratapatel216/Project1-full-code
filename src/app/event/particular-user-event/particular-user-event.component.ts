@@ -1068,10 +1068,12 @@ export class ParticularUserEventComponent implements OnInit {
         if (todays_date.getDate() === event_start_time.getDate()) {
           if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1 || diffMins === 0)) {
 
-              this._eventser.getReminder(event);
+            this.todays_past_events_ids.push(event.eventId);
+
+            this._eventser.getReminder(event);
             
 
-            this.todays_past_events_ids.push(event.eventId);
+            
 
           }
         }
