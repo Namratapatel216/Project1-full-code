@@ -1296,6 +1296,7 @@ let ParticularUserEventComponent = class ParticularUserEventComponent {
                     }
                 }
                 else if (data['action'] == 'reminder') {
+                    console.log("reminder");
                     if (data['meeting_created_for'] == this.UserId && data['meeting_created_by'] != this.UserId) {
                         let stat_time = new Date(data['start']);
                         this.setAlarm(stat_time);
@@ -1350,7 +1351,7 @@ let ParticularUserEventComponent = class ParticularUserEventComponent {
                 }
                 else {
                     if (todays_date.getDate() === event_start_time.getDate()) {
-                        if ((diffDays === 0) && (diffHrs === 0) && (((diffMins === 1) || (diffMins === 0)))) {
+                        if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1)) {
                             this._eventser.getReminder(event);
                             this.todays_past_events_ids.push(event.eventId);
                         }

@@ -1273,6 +1273,7 @@ var ParticularUserEventComponent = /** @class */ (function () {
                     }
                 }
                 else if (data['action'] == 'reminder') {
+                    console.log("reminder");
                     if (data['meeting_created_for'] == _this.UserId && data['meeting_created_by'] != _this.UserId) {
                         var stat_time = new Date(data['start']);
                         _this.setAlarm(stat_time);
@@ -1327,7 +1328,7 @@ var ParticularUserEventComponent = /** @class */ (function () {
                 }
                 else {
                     if (todays_date.getDate() === event_start_time.getDate()) {
-                        if ((diffDays === 0) && (diffHrs === 0) && (((diffMins === 1) || (diffMins === 0)))) {
+                        if ((diffDays === 0) && (diffHrs === 0) && (diffMins === 1)) {
                             _this._eventser.getReminder(event);
                             _this.todays_past_events_ids.push(event.eventId);
                         }
