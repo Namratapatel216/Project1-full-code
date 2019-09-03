@@ -1063,7 +1063,7 @@ export class ParticularUserEventComponent implements OnInit {
       {
           if(todays_date.getDate() === event_start_time.getDate())
           {
-              if ((diffDays === 0) && (diffHrs === 0 ) && (diffMins === 1) ) {
+              if ((diffDays === 0) && (diffHrs === 0 ) && (diffMins === 1 || diffMins === 0) ) {
 
                 this._eventser.getReminder(event);
         
