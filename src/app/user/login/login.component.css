@@ -1,0 +1,137 @@
+.top_header {
+    background-color : lightgrey;
+    padding : 2%;
+    font-size : 2rem;
+}
+
+.form_middle {
+    width : 35%;
+    margin-top : 5%;
+    border-style: solid;
+    border-width: medium;
+    padding : 2%;
+    border-radius : 25px;
+    position: fixed;
+    left: 32%;
+    border-color : lightgrey;
+    top : 20%;
+}
+.form_header{
+    text-align :center;
+    margin:2%;
+}
+.form-group .form-control {
+    width : 100%;
+    left : 25% !important;
+    
+}
+.form-group label {
+    color : lightgrey;
+}
+.btn_width{
+    
+    border-color:lightgrey;
+    width:100%;
+    color:black;
+    font-weight:bold;
+}	
+.form-control {
+    color: black;
+}
+
+.create-account{
+    text-align: center;
+    padding-top : 5%;
+}
+
+.forgot-password-link{
+    
+    padding-top : 2%;
+    font-size: 0.9rem;
+}
+
+
+/* The message box is shown when the user clicks on the password field */
+/* #message {
+     display:none;  
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  
+  #message p {
+    padding: 10px 35px;
+    font-size: 18px;
+  } */
+  
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    content: "✔";
+  }
+  
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    
+    content: "✖";
+  }
+
+  .message {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .message .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    background-color : rgba(58, 56, 56, 0.5);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding : 15px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    
+    top: -100%;
+    left: 50%; 
+    margin-left: -60px;
+
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  
