@@ -1278,6 +1278,9 @@ var ParticularUserEventComponent = /** @class */ (function () {
                         var stat_time = new Date(data['start']);
                         _this.setAlarm(stat_time);
                         _this.reminder_data = data;
+                        if (_this.todays_past_events_ids.indexOf(data['eventId']) !== -1) {
+                            _this.todays_past_events_ids.push(data['eventId']);
+                        }
                         _this.todays_event = _this.todays_event.map(function (event) {
                             if (event.eventId === data['eventId']) {
                                 return {
